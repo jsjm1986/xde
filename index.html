@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>薛定谔的老婆</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>薛定谔的老婆</h1>
+        <div class="status-panel">
+            <div class="status-item">
+                <label>爱情值:</label>
+                <div class="progress-bar">
+                    <div id="loveBar" class="progress"></div>
+                </div>
+            </div>
+            <div class="status-item">
+                <label>心情值:</label>
+                <div class="progress-bar">
+                    <div id="moodBar" class="progress"></div>
+                </div>
+            </div>
+            <div class="status-item">
+                <label>信任值:</label>
+                <div class="progress-bar">
+                    <div id="trustBar" class="progress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="wife-display">
+            <div id="wifeStatus" class="wife-status">状态: 未坍缩</div>
+            <div id="wifeImage" class="wife-image">👰</div>
+        </div>
+        <div id="options" class="options-container">
+            <!-- 选项将通过JS动态生成 -->
+        </div>
+        <div id="gameMessage" class="game-message"></div>
+    </div>
+    <script src="wife.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
