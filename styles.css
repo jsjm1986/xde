@@ -11,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .game-container {
@@ -20,12 +21,22 @@ body {
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     width: 90%;
     max-width: 600px;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 h1 {
-    text-align: center;
     color: #2c3e50;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.date-display {
+    color: #7f8c8d;
+    font-size: 1.1rem;
 }
 
 .status-panel {
@@ -40,6 +51,8 @@ h1 {
     display: block;
     margin-bottom: 0.5rem;
     color: #34495e;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .progress-bar {
@@ -48,13 +61,15 @@ h1 {
     background: #ecf0f1;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 
 .progress {
     height: 100%;
     background: linear-gradient(90deg, #3498db, #2980b9);
-    width: 100%;
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
 }
 
 .wife-display {
@@ -71,6 +86,36 @@ h1 {
 .wife-image {
     font-size: 5rem;
     margin: 1rem 0;
+    transition: transform 0.3s ease;
+}
+
+.wife-image:hover {
+    transform: scale(1.1);
+}
+
+.event-panel {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    display: none;
+}
+
+.event-panel.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.event-description {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
 }
 
 .options-container {
@@ -87,6 +132,7 @@ h1 {
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
 .option-button:hover {
@@ -100,4 +146,226 @@ h1 {
     margin-top: 1rem;
     color: #e74c3c;
     font-weight: bold;
+    white-space: pre-line;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.control-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #2ecc71;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.control-button:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.achievements-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.achievements-panel.hidden {
+    display: none;
+}
+
+.achievements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+.achievements-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.achievement-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.achievement-item.unlocked {
+    background: #e8f6f3;
+}
+
+.achievement-icon {
+    font-size: 2rem;
+}
+
+.achievement-info {
+    flex: 1;
+}
+
+.achievement-name {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+}
+
+.achievement-description {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.achievement-progress {
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.daily-choice-message {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    color: #7f8c8d;
+    font-style: italic;
+    border: 1px dashed #bdc3c7;
+    margin: 1rem 0;
+}
+
+.control-button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.control-button:disabled:hover {
+    background: #bdc3c7;
+    transform: none;
+}
+
+.option-button.disabled,
+.option-button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+
+.option-button.disabled:hover,
+.option-button:disabled:hover {
+    background: #bdc3c7;
+    transform: none;
+}
+
+.measurement-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+    z-index: 1000;
+}
+
+.measurement-title {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.measurement-value {
+    font-size: 1.2rem;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.measurement-note {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.option-button[disabled] {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+
+.option-button[disabled]:hover {
+    background: #bdc3c7;
+    transform: none;
 } 

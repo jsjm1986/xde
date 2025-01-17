@@ -8,7 +8,11 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>薛定谔的老婆</h1>
+        <div class="header">
+            <h1>薛定谔的老婆</h1>
+            <div id="dateDisplay" class="date-display">第1月 第1天</div>
+        </div>
+        
         <div class="status-panel">
             <div class="status-item">
                 <label>爱情值:</label>
@@ -28,16 +32,51 @@
                     <div id="trustBar" class="progress"></div>
                 </div>
             </div>
+            <div class="status-item">
+                <label>纠缠度:</label>
+                <div class="progress-bar">
+                    <div id="entanglementBar" class="progress"></div>
+                </div>
+            </div>
         </div>
+
         <div class="wife-display">
             <div id="wifeStatus" class="wife-status">状态: 未坍缩</div>
             <div id="wifeImage" class="wife-image">👰</div>
         </div>
+
+        <div id="eventPanel" class="event-panel">
+            <div id="eventTitle" class="event-title"></div>
+            <div id="eventDescription" class="event-description"></div>
+        </div>
+
         <div id="options" class="options-container">
             <!-- 选项将通过JS动态生成 -->
         </div>
+
         <div id="gameMessage" class="game-message"></div>
+
+        <div class="control-panel">
+            <button id="nextDay" class="control-button">进入下一天</button>
+            <button id="showAchievements" class="control-button">查看成就</button>
+        </div>
+
+        <div id="achievementsPanel" class="achievements-panel hidden">
+            <div class="achievements-header">
+                <h2>成就列表</h2>
+                <button class="close-button" onclick="document.getElementById('achievementsPanel').classList.add('hidden')">×</button>
+            </div>
+            <div id="achievementsList" class="achievements-list">
+                <!-- 成就列表将通过JS动态生成 -->
+            </div>
+        </div>
     </div>
+
+    <!-- 按依赖顺序引入脚本 -->
+    <script src="QuantumAttribute.js"></script>
+    <script src="WaveFunction.js"></script>
+    <script src="events.js"></script>
+    <script src="achievements.js"></script>
     <script src="wife.js"></script>
     <script src="game.js"></script>
 </body>
